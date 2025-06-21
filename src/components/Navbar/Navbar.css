@@ -1,0 +1,20 @@
+@import 'tailwindcss';
+@import '../../index.css';
+
+.nav-link {
+    @apply relative px-4 py-2 font-cooper-black z-10;
+}
+
+.nav-link::before {
+    content: "";
+    top: 10%;
+    left: 1%;
+    @apply absolute w-3 h-2 border-t-2 border-l-2 border-black;
+}
+
+.nav-link::after {
+    content: "";
+    bottom: 10%;
+    right: 1%;
+    @apply absolute w-3 h-2 border-b-2 border-r-2 border-black pointer-events-none;
+}

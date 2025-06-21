@@ -1,0 +1,32 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: "Cooper Black";
+  font-style: normal;
+  font-weight: normal;
+  src: local('Cooper Black'), 
+    url("./assets/fonts/CooperBlack.woff");
+}
+
+@font-face {
+  font-family: "Funnel Sans";
+  font-style: normal;
+  font-weight: normal;
+  src: local('Funnel Sans'), 
+    url("./assets/fonts/FunnelSans.ttf");
+}
+
+@theme {
+  --font-cooper-black: "Cooper Black", "sans-serif";
+  --font-funnel-sans: "Funnel Sans", "sans-serif";
+  --color-french-vanilla-sorbet: #FBE8CE;
+  --color-serenade: #FBE7CE;
+  --color-pastel-orange: #F0DBC5;
+  --color-old-lace: #FFF3E5;
+}
+
+.appear-in {
+  transform-origin: bottom;
+  width: 100%;
+  @apply fixed top-0 left-0 h-screen bg-black;
+}
