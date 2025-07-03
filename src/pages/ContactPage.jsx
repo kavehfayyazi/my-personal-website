@@ -34,7 +34,7 @@ const ContactPage = () => {
           </motion.div>
 
           <IconCard
-            href="https://www.github.com"
+            href="https://www.github.com/kavehfayyazi/"
             className="absolute top-[20%] left-[40%] transform -translate-x-1/2"
           >
             <IconBrandGithub size={40}/>

@@ -1,6 +1,5 @@
 import React from 'react'
 import Card from './Card.jsx'
-import { motion } from 'motion/react'
 
 const TextCard = ({children, className=''}) => {
   return (
