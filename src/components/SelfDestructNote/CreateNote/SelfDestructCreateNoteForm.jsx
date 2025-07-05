@@ -1,18 +1,23 @@
-import React, { useState } from 'react'
+import React, { useState , useEffect} from 'react'
 import ButtonCard from '../../Cards/ButtonCard';
 import SelfDestructCopyLinkBox from './SelfDestructNoteCopyLinkBox';
 
 const SelfDestructCreateNoteForm = () => {
+  const API_URL = import.meta.env.dev
+                  ? '/api'
+                  : import.meta.env.VITE_API_URL;
+
   const [note, setNote] = useState('');
   const [slug, setSlug] = useState(null);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [showWaitMsg, setShowWaitMsg] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
     try {
-      const res = await fetch('/api/notes', {
+      const res = await fetch(`${API_URL}/notes`, {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({message:note}),
@@ -24,8 +29,17 @@ const SelfDestructCreateNoteForm = () => {
     } catch (err) {
       console.log(err);
       setError(err.message);
+    } finally {
+      setLoading(false);
     }
   }
+
+  useEffect(() => {
+    let timer;
+    if(loading) timer = setTimeout(() => setShowWaitMsg(true), 5000);
+    else setShowWaitMsg(false);
+    return () => clearTimeout(timer);
+  }, [loading]);
 
   const resetNote = () => {
     setNote('');
@@ -66,6 +80,12 @@ const SelfDestructCreateNoteForm = () => {
         <ButtonCard disabled={loading}>
           {loading ? 'Creating...' : 'Create Your Message!'}
         </ButtonCard>
+
+        {showWaitMsg && (
+          <p>
+            Please wait for the API...
+          </p>
+        )}
       </form>
     </>
   )
