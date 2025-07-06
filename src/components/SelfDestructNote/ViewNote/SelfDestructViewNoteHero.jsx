@@ -45,7 +45,7 @@ const SelfDestructViewNoteHero = () => {
   // 1: There's an error
   if(error)
     return (
-      <p className="flex h-7/12 items-center justify-center text-black font-cooper-black text-3xl">
+      <p className="flex flex-col h-[76vh] items-center justify-center text-black font-cooper-black text-3xl">
         There was an error... Please try again later.
       </p>
     )
@@ -53,19 +53,19 @@ const SelfDestructViewNoteHero = () => {
   // 2: We have a slug so show the copy-link box component
   if(loading)
     return (
-      <h1 className="flex h-7/12 flex-row justify-center items-center font-cooper-black text-2xl">
+      <h1 className="flex flex-col h-[76vh] justify-center items-center font-cooper-black text-2xl">
         Please wait while we fetch your message.
       </h1>
     )
 
   return (
-    <div className="flex h-7/12 flex-row justify-center items-center gap-2">
+    <div className="flex flex-col h-[76vh] justify-center items-center gap-4">
       {accessible ? (
-            <TextCard>
+            <TextCard className="w-[40vh] h-[10vh] font-cooper-black">
               {`${message}`}
             </TextCard> 
       ) : (
-          <h1>{`${message}`}</h1>
+          <h1 className="font-cooper-black text-3xl">{`${message}`}</h1>
       )}
       <ButtonCard onClick={resetNote}>
         Click Here to Make Another Note

@@ -36,7 +36,7 @@ const SelfDestructCreateNoteForm = () => {
 
   useEffect(() => {
     let timer;
-    if(loading) timer = setTimeout(() => setShowWaitMsg(true), 5000);
+    if(loading) timer = setTimeout(() => setShowWaitMsg(true), 3000);
     else setShowWaitMsg(false);
     return () => clearTimeout(timer);
   }, [loading]);
@@ -68,13 +68,14 @@ const SelfDestructCreateNoteForm = () => {
   return (
     <>
       <form className="flex flex-col space-y-6" onSubmit={handleSubmit}>
-        <input 
+        <textarea 
           required
+          maxLength={120}
           type="text" 
           placeholder="Type your note here!"
           value={note}
           onChange={(e) => {setNote(e.target.value);}}
-          className="p-3 border rounded-xl bg-white"
+          className="w-[40vh] h-[10vh] p-3 border rounded-xl bg-white"
         />
 
         <ButtonCard disabled={loading}>
