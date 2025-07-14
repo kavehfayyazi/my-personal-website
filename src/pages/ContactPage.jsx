@@ -10,7 +10,7 @@ const ContactPage = () => {
   return (
     <>
       <section className="relative h-screen overflow-hidden">
-        <motion.div className="absolute w-screen h-8/12 flex items-center justify-center z-0"
+        <motion.div className="absolute w-screen h-10/12 flex items-center justify-center z-0"
           initial= {{y: -400}}
           animate= {{y: 0, scale: 1.4}}
         >
@@ -24,7 +24,7 @@ const ContactPage = () => {
             // initial= {{opacity: 0}}
             // animate= {{opacity: 1}}
             // transition={{delay: 0.33, duration: 1.5}}
-            className="absolute top-[20%] left-[60%] transform -translate-x-1/2"
+            className="absolute top-[30vh] left-[60%] transform -translate-x-1/2"
           >
             <IconCard 
               href="https://www.linkedin.com/in/kavehf"
@@ -35,7 +35,7 @@ const ContactPage = () => {
 
           <IconCard
             href="https://www.github.com/kavehfayyazi/"
-            className="absolute top-[20%] left-[40%] transform -translate-x-1/2"
+            className="absolute top-[30vh] left-[40%] transform -translate-x-1/2"
           >
             <IconBrandGithub size={40}/>
           </IconCard>
@@ -44,10 +44,6 @@ const ContactPage = () => {
             email="kfayyazi@andrew.cmu.edu"
             className="absolute top-[48%] left-[50%] transform -translate-x-1/2"
           />
-
-          <TextCard className="absolute top-[40vh] left-[50%] transform -translate-x-1/2">
-            (484) 714-9135
-          </TextCard>
         </div>
       </section>
     </>
