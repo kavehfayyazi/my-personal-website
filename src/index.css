@@ -24,9 +24,3 @@
   --color-pastel-orange: #F0DBC5;
   --color-old-lace: #FFF3E5;
 }
-
-.appear-in {
-  transform-origin: bottom;
-  width: 100%;
-  @apply fixed top-0 left-0 h-screen bg-black;
-}
